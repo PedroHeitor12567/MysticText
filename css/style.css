@@ -1,0 +1,61 @@
+/* Várias com as cores*/
+:root {
+    /* Cores sólidas */
+    --bg:        #fbeef4;   /* background rosado claro */
+    --fg:        #3a1638;   /* texto principal (vinho) */
+    --card:      #fff5fa;   /* fundo dos cards */
+    --hot:       #ff3d8a;   /* hot pink */
+    --bubble:    #ffa3d1;   /* bubblegum */
+    --magenta:   #c026a8;   /* magenta profundo */
+    --lilac:     #d6a8e8;   /* lilás */
+    --cream:     #fbf4d4;   /* creme */
+    --muted:     #8a6480;   /* texto secundário */
+    --border:    #f1c6dc;
+
+    /* Degradês */
+    --grad-pink: linear-gradient(135deg, #ffa3d1 0%, #ff3d8a 50%, #c026a8 100%);
+    --grad-text: linear-gradient(135deg, #c026a8 0%, #ff3d8a 50%, #ff7a59 100%);
+    --grad-shine: linear-gradient(90deg, #c026a8, #ffe88a, #ff3d8a, #c026a8);
+
+    /* Sombras */
+    --shadow-glow:
+        0 10px 40px -10px rgba(255, 61, 138, .5),
+        inset 0 0 0 1px rgba(255, 255, 255, .4),
+        0 20px 60px -20px rgba(192, 38, 168, .45);
+    --shadow-pop: 6px 6px 0 0 var(--fg);
+
+    /* Fontes */ 
+    --font-display: "Bagel Fat One", cursive;
+    --font-serif:   "DM Serif Display", serif;
+    --font-body:    "Quicksand", sans-serif;
+
+    /* Espaçamento (múltiplos de 4px) */
+    --sp-xs: 4px;
+    --sp-sm: 8px;
+    --sp-md: 16px;
+    --sp-lg: 24px;
+    --sp-xl: 40px;
+    --sp-2xl: 64px;
+    --sp-3xl: 96px;
+
+    /* Raio */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-pill: 999px;
+}
+
+/* ----- Resetando as configurações padrões ----- */ 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--fg);
+    background-color: var(--bg);
+}
