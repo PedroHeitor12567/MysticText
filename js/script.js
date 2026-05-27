@@ -1,5 +1,12 @@
+const inputEl = document.getElementById("input");
 const outputBox = document.querySelector(".output-box");
+const copyBtn = document.getElementById("copy-btn");
+const clearBtn = document.getElementById("clear-btn");
+const toolBtns = document.querySelectorAll(".tool-btn");
 const statsContainer = document.querySelector(".stats");
+
+let currentText = "";
+let activeTransform = null;
 
 function countWords(text) {
     const trimmed = text.trim();
@@ -34,3 +41,31 @@ function renderOutput(text) {
     }
 }
 
+function applyTransform(name, text) {
+    switch (name) {
+        case "MAIÚSCULAS":
+            return text.toUpperCase();
+        case "minúsculas":
+            return text.toLowerCase();
+        case "Formato título":
+            return text.replace(/\S+/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+        case "AlTeRnAdO":
+            return text.split("").map((ch, i) => i % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase()).join("");
+        case "Inverter texto":
+            return text.split("").reverse().join("");
+        case "Remover espaços":
+            return text.replace(/\s+/g, " ").trim();
+        case "Glitter":
+            return text.split("").join("✨");
+        case "Bolha":
+            return text.split("").map(ch => {
+                const code = ch.codePointAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(9398 + code - 65);
+                if (code >= 97 && code <= 122) return String.fromCodePoint(9424 + code - 97);
+                if (code >= 48 && code <= 57) return ["⓪","①","②","③","④","⑤","⑥","⑦","⑧","⑨"][code - 48];
+                return ch;
+            }).join("");
+        default:
+            return text;
+    }
+}
