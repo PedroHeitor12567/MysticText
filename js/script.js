@@ -25,7 +25,7 @@ function countSentences(text) { /* Contar frases */
     return matches ? matches.length : 1;
 }
 
-function renderStats(text) { /* Renderizasr estatísticas */
+function renderStats(text) { /* Renderizar estatísticas */
     statsContainer.innerHTML = `
         <div class="stat"><strong>${countWords(text)}</strong> palavras</div>
         <div class="stat"><strong>${countChars(text)}</strong> caracteres</div>
@@ -69,6 +69,8 @@ function applyTransform(name, text) { /* Aplicar transformações */
             return text;
     }
 }
+
+console.log(toolBtns)
 
 toolBtns.forEach(botao => {
     botao.addEventListener("click", () => {
