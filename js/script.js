@@ -8,24 +8,24 @@ const statsContainer = document.querySelector(".stats");
 let currentText = "";
 let activeTransform = null;
 
-function countWords(text) {
+function countWords(text) { /* Contar palavras */
     const trimmed = text.trim();
     if (!trimmed) return 0;
     return trimmed.split(/\s+/).length;
 }
 
-function countChars(text) {
+function countChars(text) { /* Contar caracteres */
     return text.length;
 }
 
-function countSentences(text) {
+function countSentences(text) { /* Contar frases */
     const trimmed = text.trim();
     if (!trimmed) return 0;
     const matches = trimmed.match(/[^.!?]*[.!?]+/g);
     return matches ? matches.length : 1;
 }
 
-function renderStats(text) {
+function renderStats(text) { /* Renderizasr estatísticas */
     statsContainer.innerHTML = `
         <div class="stat">🔤 <strong>${countWords(text)}</strong> palavras</div>
         <div class="stat">💬 <strong>${countChars(text)}</strong> caracteres</div>
@@ -33,7 +33,7 @@ function renderStats(text) {
     `;
 }
 
-function renderOutput(text) {
+function renderOutput(text) { /* Renderizar output */
     if (!text) {
         outputBox.innerHTML = "<p>Tudo brilha aqui ✨</p>";
     } else {
@@ -41,7 +41,7 @@ function renderOutput(text) {
     }
 }
 
-function applyTransform(name, text) {
+function applyTransform(name, text) { /* Aplicar transformações */
     switch (name) {
         case "MAIÚSCULAS":
             return text.toUpperCase();
@@ -68,4 +68,20 @@ function applyTransform(name, text) {
         default:
             return text;
     }
+}
+
+function styleTool(name) {
+    statsContainer.innerCSS = `
+    `
+}
+
+toolBtns.forEach(botao => {
+    botao.addEventListener("click", () => {
+        toolBtns.forEach(b => b.classList.remove("ativo"));
+        botao.classList.add("ativo");
+    })
+});
+
+function copy() {
+    
 }
