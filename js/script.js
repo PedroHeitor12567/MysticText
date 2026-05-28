@@ -27,9 +27,9 @@ function countSentences(text) { /* Contar frases */
 
 function renderStats(text) { /* Renderizasr estatísticas */
     statsContainer.innerHTML = `
-        <div class="stat">🔤 <strong>${countWords(text)}</strong> palavras</div>
-        <div class="stat">💬 <strong>${countChars(text)}</strong> caracteres</div>
-        <div class="stat">📝 <strong>${countSentences(text)}</strong> frases</div>
+        <div class="stat"><strong>${countWords(text)}</strong> palavras</div>
+        <div class="stat"><strong>${countChars(text)}</strong> caracteres</div>
+        <div class="stat"><strong>${countSentences(text)}</strong> frases</div>
     `;
 }
 
@@ -70,15 +70,12 @@ function applyTransform(name, text) { /* Aplicar transformações */
     }
 }
 
-function styleTool(name) {
-    statsContainer.innerCSS = `
-    `
-}
-
 toolBtns.forEach(botao => {
     botao.addEventListener("click", () => {
         toolBtns.forEach(b => b.classList.remove("ativo"));
         botao.classList.add("ativo");
+        activeTransform = botao.textContent.trim();
+        renderOutput(applyTransform(activeTransform, currentText));
     })
 });
 
@@ -89,3 +86,20 @@ async function copyText() {
     await navigator.clipboard.writeText(text);
     alert("Texto copiado!")
 }
+
+
+inputEl.addEventListener("input", () => {
+    currentText = inputEl.value;
+    renderStats(currentText);
+    renderOutput(activeTransform ? applyTransform(activeTransform, currentText) : currentText);
+});
+
+/* Limpar */
+function clear() {
+    currentText = "";
+    inputEl.value = ""
+    renderOutput(currentText)
+    renderStats(currentText)
+}
+
+clearBtn.addEventListener("click", clear)
