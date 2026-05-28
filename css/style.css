@@ -609,14 +609,14 @@ body {
 
 /* ===== FOOTER ===== */
 footer {
-    background: var(--fg);
-    color: rgba(255, 255, 255, 0.65);
-    padding: var(--sp-xl);
+    background: var(--bg);
+    padding: var(--sp-lg);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--sp-md);
+    justify-content: space-between;
+    gap: var(--sp);
     text-align: center;
+    border-top: 4px solid var(--fg);
 }
 
 footer .logo {
@@ -656,6 +656,7 @@ footer p {
     margin: 0;
     font-size: 0.82rem;
     font-weight: 500;
+    color: #222;
 }
 
 /* ===== RESPONSIVE ===== */

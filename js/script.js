@@ -82,6 +82,10 @@ toolBtns.forEach(botao => {
     })
 });
 
-function copy() {
-    
+async function copyText() {
+    const text = outputBox.textContent.trim();
+    if (!text || text === "Tudo brilha aqui ✨") return;
+
+    await navigator.clipboard.writeText(text);
+    alert("Texto copiado!")
 }
