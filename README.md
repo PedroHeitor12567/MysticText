@@ -65,7 +65,7 @@ git clone https://github.com/PedroHeitor12567/MysticText.git
 
 ## 👥 Contribuidores
 
-Feito com 💖 por **PedroHeitor12567** e colaboradores.
+Feito com 💖 por **PedroHeitor12567** e **Joaofelipemx**.
 
 ---
 
