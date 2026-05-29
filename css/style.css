@@ -659,6 +659,36 @@ footer p {
     color: #222;
 }
 
+#show-btn {
+    background: var(--fg);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: var(--sp-sm) var(--sp-lg);
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 3px 3px 0 var(--hot);
+}
+
+#show-btn:hover {
+    transform: translateY(-2px);
+    background: var(--hot);
+    box-shadow: 3px 3px 0 var(--fg);
+}
+
+#show-btn.playing {
+    background: var(--grad-pink);
+    animation: pulse-btn 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-btn {
+    from { box-shadow: 3px 3px 0 var(--fg); }
+    to   { box-shadow: 3px 3px 0 var(--fg), 0 0 18px rgba(255, 61, 138, 0.6); }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 720px) {
     .converter-grid {

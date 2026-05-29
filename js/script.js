@@ -104,4 +104,19 @@ function clear() {
     renderStats(currentText)
 }
 
+function toggleMusic() {
+    const audio = document.getElementById("red-audio");
+    const btn = document.getElementById("show-btn");
+
+    if (audio.paused) {
+        audio.play();
+        btn.textContent = "⏸ Pausar o show";
+        btn.classList.add("playing");
+    } else {
+        audio.pause();
+        btn.textContent = "🎤 A hora do show";
+        btn.classList.remove("playing");
+    }
+}
+
 clearBtn.addEventListener("click", clear)
